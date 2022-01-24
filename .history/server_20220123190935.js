@@ -16,13 +16,7 @@ app.get("/notes", function(req, res) {
 });
 
 app.get("/api/notes", function(req, res) {
-    fs.readFile("db/db.json", "utf8", function (err, data) {
-        if (err) {
-            console.log (err);
-            return;
-        }
-        res.json(notes);
-    })
+    res.sendFile(path.join(__dirname, "/db/db.json"));
 });
 
 app.get("/api/notes/:id", function(req, res) {

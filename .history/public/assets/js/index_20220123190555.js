@@ -27,8 +27,8 @@ let activeNote = {};
 
 const getNotes = () => {
   return $.ajax({
-  url: "/api/notes",
-  method: "GET"
+    url: "/api/notes",
+    method: "GET"
   })
 };
 
@@ -44,7 +44,7 @@ const deleteNote = (id) => {
   return $.ajax({
     url: "/api/notes/" + id,
     data: note,
-    method: "DELETE"
+    method: "POST"
   })
 };
 
