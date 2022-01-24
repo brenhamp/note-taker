@@ -40,7 +40,7 @@ var deleteNote = (id) => {
   })
 };
 
-var renderActiveNote = function () {
+var renderActiveNote = () => {
   $saveNoteBtn.hide();
 
   if (activeNote.id) {
@@ -76,7 +76,7 @@ var handleNoteDelete = function (event) {
   .parent(".list-group-item")
   .data();
 
-  if (activeNote.id === note.id) {
+  if (activeNote.id === note.Id) {
     activeNote = {};
   }
 
@@ -87,7 +87,8 @@ var handleNoteDelete = function (event) {
 };
 
 // Sets the activeNote and displays it
-var handleNoteView = function () {
+var handleNoteView = function (event) {
+  event.preventDefault();
   activeNote = $(this).data();
   renderActiveNote();
 };
