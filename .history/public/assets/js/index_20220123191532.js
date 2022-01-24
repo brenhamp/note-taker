@@ -28,17 +28,19 @@ let activeNote = {};
 const getNotes = () => {
   return $.ajax({
   url: "/api/notes",
+  data: note,
   method: "GET"
-  })
+})
 };
 
-const saveNote = (note) => {
-  return $.ajax({
-    url: "/api/notes",
-    data: note,
-    method: "POST"
-  })
-};
+const saveNote = (note) =>
+  fetch('/api/notes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(note),
+  });
 
 const deleteNote = (id) => {
   return $.ajax({
