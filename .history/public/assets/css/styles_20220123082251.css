@@ -16,11 +16,9 @@ body {
   cursor: pointer;
 }
 
-.btn {
-  background: transparent;
-  border: none !important;
-  font-size:0;
-}
+/* .btn {
+  display: none;
+} */
 
 .note-textarea,
 .note-title {
