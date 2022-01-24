@@ -3,6 +3,7 @@ const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
 const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
+const $deleteNoteBtn = $(".delete-note");
 
 // Show an element
 // const show = (elem) => {
@@ -175,11 +176,10 @@ var getAndRenderNotes = function () {
   });
 };
 
-$saveNoteBtn.on("click", handleNoteSave);
-$noteList.on("click", ".list-group-item", handleNoteView);
-$newNoteBtn.on("click", handleNewNoteView);
-$noteList.on("click", ".delete-note", handleNoteDelete);
-$noteTitle.on("keyup", handleRenderSaveBtn);
-$noteText.on("keyup", handleRenderSaveBtn);
+$saveNoteBtn.on('click', handleNoteSave);
+$newNoteBtn.on('click', handleNewNoteView);
+$noteTitle.on('keyup', handleRenderSaveBtn);
+$noteText.on('keyup', handleRenderSaveBtn);
+$deleteNoteBtn.on('click', handleNoteDelete);
 
 getAndRenderNotes();

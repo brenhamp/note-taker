@@ -71,15 +71,13 @@ var handleNoteDelete = function (event) {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   event.stopPropagation();
 
-  var note = $(this)
-    .parent(".list-group-item")
-    .data();
+  var note = $(this).parent(".list-group-item").data();
 
   if (activeNote.id === note.id) {
     activeNote = {};
   }
 
-  deleteNote(note.id).then(function () {
+  deleteNote(note.id).then(() => {
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -97,7 +95,7 @@ var handleNewNoteView = function () {
   renderActiveNote();
 };
 
-var handleRenderSaveBtn = function () {
+var handleRenderSaveBtn = () => {
   if (!$noteTitle.val().trim() || !$noteText.val().trim()) {
     $saveNoteBtn.hide();
   } else {
@@ -109,7 +107,7 @@ var handleRenderSaveBtn = function () {
 var renderNoteList = async (notes) => {
   $noteList.empty();
 
-  var noteListItems = [];
+  let noteListItems = [];
 
   for (var i = 0; i < notes.length; i++) {
     var note = notes[i];
@@ -169,17 +167,15 @@ var renderNoteList = async (notes) => {
 // };
 
 // Gets notes from the db and renders them to the sidebar
-var getAndRenderNotes = function () {
+var getAndRenderNotes = () => {
   return getNotes().then(function(data) {
     renderNoteList(data);
   });
 };
 
-$saveNoteBtn.on("click", handleNoteSave);
-$noteList.on("click", ".list-group-item", handleNoteView);
-$newNoteBtn.on("click", handleNewNoteView);
-$noteList.on("click", ".delete-note", handleNoteDelete);
-$noteTitle.on("keyup", handleRenderSaveBtn);
-$noteText.on("keyup", handleRenderSaveBtn);
+  $saveNoteBtn.on('click', handleNoteSave);
+  $newNoteBtn.on('click', handleNewNoteView);
+  $noteTitle.on('keyup', handleRenderSaveBtn);
+  $noteText.on('keyup', handleRenderSaveBtn);
 
 getAndRenderNotes();

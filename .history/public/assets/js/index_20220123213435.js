@@ -109,7 +109,7 @@ var handleRenderSaveBtn = function () {
 var renderNoteList = async (notes) => {
   $noteList.empty();
 
-  var noteListItems = [];
+  let noteListItems = [];
 
   for (var i = 0; i < notes.length; i++) {
     var note = notes[i];
@@ -175,11 +175,9 @@ var getAndRenderNotes = function () {
   });
 };
 
-$saveNoteBtn.on("click", handleNoteSave);
-$noteList.on("click", ".list-group-item", handleNoteView);
-$newNoteBtn.on("click", handleNewNoteView);
-$noteList.on("click", ".delete-note", handleNoteDelete);
-$noteTitle.on("keyup", handleRenderSaveBtn);
-$noteText.on("keyup", handleRenderSaveBtn);
+$saveNoteBtn.on('click', handleNoteSave);
+$newNoteBtn.on('click', handleNewNoteView);
+$noteTitle.on('keyup', handleRenderSaveBtn);
+$noteText.on('keyup', handleRenderSaveBtn);
 
 getAndRenderNotes();
