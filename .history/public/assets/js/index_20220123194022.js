@@ -34,9 +34,9 @@ const saveNote = (note) => {
 
 const deleteNote = (id) => {
   return $.ajax({
-    url: "/api/notes",
+    url: "/api/notes/" + id,
     data: note,
-    method: "POST"
+    method: "DELETE"
   })
 };
 

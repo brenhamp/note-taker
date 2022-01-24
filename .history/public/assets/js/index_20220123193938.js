@@ -34,9 +34,9 @@ const saveNote = (note) => {
 
 const deleteNote = (id) => {
   return $.ajax({
-    url: "/api/notes",
+    url: "/api/notes/" + id,
     data: note,
-    method: "POST"
+    method: "DELETE"
   })
 };
 
@@ -58,8 +58,8 @@ const renderActiveNote = () => {
 
 const handleNoteSave = () => {
   const newNote = {
-    title: $noteTitle.val,
-    text: $noteText.val,
+    title: noteTitle.value,
+    text: noteText.value,
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
