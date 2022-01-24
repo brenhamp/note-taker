@@ -88,7 +88,7 @@ const handleNoteDelete = (e) => {
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
-  activeNote = $(this).data;
+  activeNote = $(this).data();
   renderActiveNote();
 };
 
@@ -161,13 +161,12 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => {
-  return getNotes().then(renderNoteList);
-};
+const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
   $saveNoteBtn.on('click', handleNoteSave);
   $newNoteBtn.on('click', handleNewNoteView);
   $noteTitle.on('keyup', handleRenderSaveBtn);
   $noteText.on('keyup', handleRenderSaveBtn);
+
 
 getAndRenderNotes();
