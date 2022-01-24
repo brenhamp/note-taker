@@ -1,3 +1,4 @@
+
 const $noteTitle = $(".note-title");
 const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
@@ -19,8 +20,8 @@ let activeNote = {};
 
 const getNotes = () => {
   return $.ajax({
-    url: "/api/notes",
-    method: "GET"
+  url: "/api/notes",
+  method: "GET"
   })
 };
 
@@ -34,9 +35,9 @@ const saveNote = (note) => {
 
 const deleteNote = (id) => {
   return $.ajax({
-    url: "/api/notes",
+    url: "/api/notes/" + id,
     data: note,
-    method: "POST"
+    method: "DELETE"
   })
 };
 
