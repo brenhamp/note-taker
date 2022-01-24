@@ -76,7 +76,7 @@ const handleNoteDelete = (e) => {
   .parent(".list-group-item")
   .data();
 
-  const noteId = note.attr(id);
+  const noteId = $(this).parent.attr(id);
 
   if (activeNote.id === noteId) {
     activeNote = {};
